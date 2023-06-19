@@ -2,6 +2,29 @@
 
 The "Project helps to transform your voice into a waifu or anime girl voice" is a GitHub project that aims to provide a tool to transform a person's voice into that of a waifu or anime girl. The project is developed using open-source libraries and tools, and it is designed to be accessible to anyone who is interested in changing their voice.
 
+## Requirement
+
+- You need to install voicevox engine
+- Move folder "windows-nvidia" to "Hota-AI-japanese-voice" folder and rename to "_windows-nvidia"
+
+## How to use
+
+### Step 1
+
+Install requirements.txt
+
+```
+pip install -r requirements.txt
+```
+
+### Step 2
+
+run main.py
+
+```
+python main.py
+```
+
 ## How it Works
 
 The tool uses deep learning algorithms to analyze the user's voice and apply various filters and effects to create the desired voice transformation. Users can choose from a variety of different voice styles, including cute, playful, and energetic, and can adjust the intensity of the transformation to suit their preferences.
