@@ -60,7 +60,7 @@ def play_voice():
     print_ui("start_speaking", 1)
     time.sleep(1)
     fs, data = read(LOC_VOICE)
-    voice = sd.play(data, fs)
+    voice = sd.play(data * round(volume_outspeaker), fs)
     sd.wait()  # Wait until file is done playing
     print_ui("end_speaking")
 
@@ -82,12 +82,19 @@ if __name__ == "__main__":
                     continue
 
                 if menu_activated:
+                    menu_activated = False
                     if keyPressed == "y":
                         typeRec = 1
                         break
                     if keyPressed == "t":
                         typeRec = 0
                         break
+                    if keyPressed == "v":
+                        print_ui("volume_display", volume_outspeaker)
+                        print_ui("enter_text")
+                        volume_outspeaker = float(input())
+                        print_ui("output_text", str(volume_outspeaker))
+                        continue
                     if keyPressed == "c":
                         print_ui("enter_text")
                         speaker_ai = int(input())
@@ -109,8 +116,7 @@ if __name__ == "__main__":
                         play_voice()
                         continue
                     if keyPressed == "`":
-                        if menu_activated:
-                            print_ui("menu_deactivated")
+                        print_ui("menu_deactivated")
                         menu_activated = False
                         continue
                     if keyPressed == "q":
@@ -119,9 +125,8 @@ if __name__ == "__main__":
                         break
                 else:
                     if keyPressed == "`":
-                        if not menu_activated:
-                            print_ui("tutorial_menu")
-                            print_ui("menu_activated")
+                        print_ui("tutorial_menu")
+                        print_ui("menu_activated")
                         menu_activated = True
                         continue
                     if keyPressed == "q":

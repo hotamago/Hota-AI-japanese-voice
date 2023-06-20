@@ -1,5 +1,6 @@
 fs = 44100  # Sample rate
 seconds = 5  # Duration of recording
+volume_outspeaker = 1.0  # Volume of speaker
 
 speaker_ai = 1
 
