@@ -1,7 +1,7 @@
 UIMAP = {
     "header": lambda: """Coded by Hotamago - SonDepZai""",
     "tutorial_begin": lambda: """Press '`' to open menu""",
-    "tutorial_menu": lambda: """Press 'y' to enter text\nPress 't' to start recording\nPress 'c' to change speaker ai\nPress 'q' to quit""",
+    "tutorial_menu": lambda: """Press 'y' to enter text\nPress 't' to start recording\nPress 'd' to change speaker_device\nPress 'c' to change speaker ai\nPress 'r' to repeat last voice\nPress 'q' to quit""",
     "menu_activated": lambda: """Menu was activated""",
     "menu_deactivated": lambda: """Menu was deactivated""",
     "start_recording": lambda: "Start recording...",
@@ -13,6 +13,7 @@ UIMAP = {
     "translated_text": lambda x: "Translated text: {0}".format(x),
     "start_speaking": lambda x: "Start speaking after ({0})...".format(x),
     "end_speaking": lambda: "End speaking",
+    "list_devices": lambda x: "List devices: {0}".format(x),
     "line": lambda: "--------------------",
     "error": lambda: "Error, please try again",
     "quit": lambda: "Quiting...",

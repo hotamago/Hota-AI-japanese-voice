@@ -4,9 +4,11 @@ from voicevox import Client
 import asyncio
 import whisper
 import time
+
 # import speech_recognition as sr
 
 import sounddevice as sd
+
 from scipy.io.wavfile import write, read
 
 import translators as ts
@@ -29,6 +31,14 @@ model = whisper.load_model("base")
 gpt = gptModel(poeModel, tokenPoe[0], poeTimeout)
 
 # Support functions
+def get_default_input_device():
+        try:
+            index = sd.default.device[0]
+        except IOError:
+            index = None
+
+        return index
+
 async def text2speech(text):
     async with Client() as client:
         audio_query = await client.create_audio_query(
@@ -44,6 +54,15 @@ async def text2speech(text):
 #         # recognize (convert from speech to text)
 #         text = r.recognize_google(audio_data, language="vi-VN")
 #         return text
+
+def play_voice():
+    # Play voice
+    print_ui("start_speaking", 1)
+    time.sleep(1)
+    fs, data = read(LOC_VOICE)
+    voice = sd.play(data, fs)
+    sd.wait()  # Wait until file is done playing
+    print_ui("end_speaking")
 
 # Global variables
 menu_activated = False
@@ -73,6 +92,21 @@ if __name__ == "__main__":
                         print_ui("enter_text")
                         speaker_ai = int(input())
                         print_ui("output_text", str(speaker_ai))
+                        continue
+                    if keyPressed == "d": # Change output speaker
+                        listDevice = sd.query_devices()
+                        print_ui("list_devices", listDevice)
+                        print_ui("enter_text")
+                        speaker_device = int(input())
+                        print_ui("output_text", str(speaker_device))
+                        if speaker_device < 0:
+                            sd.default.device = get_default_input_device()
+                        else:
+                            # Setup output device
+                            sd.default.device = speaker_device
+                        continue
+                    if keyPressed == "r": # Repeat last voice
+                        play_voice()
                         continue
                     if keyPressed == "`":
                         if menu_activated:
@@ -135,13 +169,7 @@ if __name__ == "__main__":
             # Text to speech
             asyncio.run(text2speech(input_text))
 
-            # Play voice
-            print_ui("start_speaking", 1)
-            time.sleep(1)
-            fs, data = read(LOC_VOICE)
-            voice = sd.play(data, fs)
-            sd.wait()  # Wait until file is done playing
-            print_ui("end_speaking")
+            play_voice()
 
         except:
             print_ui("error")

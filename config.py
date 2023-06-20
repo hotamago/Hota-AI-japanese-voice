@@ -1,7 +1,7 @@
 fs = 44100  # Sample rate
 seconds = 5  # Duration of recording
 
-speaker_ai = 25
+speaker_ai = 1
 
 LOC_MYVOICE = '_temp/myvoice.wav'
 LOC_VOICE  = '_temp/voice.wav'
