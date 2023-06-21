@@ -1,6 +1,5 @@
 # import open libraries
-import poe
-from voicevox import Client
+from fixlibs.voicevox import Client
 import asyncio
 import whisper
 import time

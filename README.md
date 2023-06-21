@@ -4,20 +4,52 @@ The "Project helps to transform your voice into a waifu or anime girl voice" is 
 
 ## Requirement
 
+### voicevox engine
+
 - You need to install voicevox engine
-- Move folder "windows-nvidia" to "Hota-AI-japanese-voice" folder and rename to "_windows-nvidia"
+- Move folder "windows-nvidia" to "Hota-AI-japanese-voice" folder and rename to "\_windows-nvidia"
+
+### ffmpeg
+
+- You need to install ffmpeg
+- ffmpeg should have envairoment variable
 
 ## How to use
 
-### Step 1
-
-Install requirements.txt
+### Step 1: Install requirements.txt
 
 ```
 pip install -r requirements.txt
 ```
 
-### Step 2
+### Step 2: Fix error of voicevox-client package
+
+use command below to find location of voicevox package
+
+```
+pip show voicevox-client
+```
+
+it will show something like this:
+
+```
+Name: voicevox-client
+Version: 0.2.0
+Summary: Voicevox engine unoffical wrapper
+Home-page: https://github.com/voicevox-client/python
+Author: tuna2134
+Author-email:
+License: MIT
+Location: **Location of package**
+Requires: httpx, typing-extensions
+Required-by:
+```
+
+Go to location of voicevox-client then find voicevox folder and open it
+
+Copy file fixlibs\speaker_info.py to voicevox folder
+
+### Step 3: Run application
 
 run main.py
 
@@ -35,7 +67,7 @@ The project is intended to be used by anyone who is interested in anime or Japan
 
 ## Ongoing Development
 
-The development of this project is ongoing, with regular updates and improvements being made to enhance the tool's functionality and improve the user experience. The project is open-source, meaning that anyone can contribute to its development or use the source code to create their own voice transformation tools. 
+The development of this project is ongoing, with regular updates and improvements being made to enhance the tool's functionality and improve the user experience. The project is open-source, meaning that anyone can contribute to its development or use the source code to create their own voice transformation tools.
 
 ## Conclusion
 
