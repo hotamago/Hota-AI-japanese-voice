@@ -2,6 +2,8 @@
 
 The "Project helps to transform your voice into a waifu or anime girl voice" is a GitHub project that aims to provide a tool to transform a person's voice into that of a waifu or anime girl. The project is developed using open-source libraries and tools, and it is designed to be accessible to anyone who is interested in changing their voice.
 
+P/S: Project currently only supports Vietnamese input. May support other languages ​​in the future
+
 ## Requirement
 
 ### voicevox engine

@@ -105,11 +105,9 @@ if __name__ == "__main__":
                         print_ui("enter_text")
                         speaker_device = int(input())
                         print_ui("output_text", str(speaker_device))
-                        if speaker_device < 0:
-                            sd.default.device = get_default_input_device()
-                        else:
+                        if speaker_device >= 0 and speaker_device < len(listDevice):
                             # Setup output device
-                            sd.default.device = speaker_device
+                            sd.default.device = sd.default.device[0], speaker_device
                         continue
                     if keyPressed == "r": # Repeat last voice
                         play_voice()
