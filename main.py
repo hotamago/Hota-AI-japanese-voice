@@ -1,5 +1,5 @@
 # import open libraries
-from fixlibs.voicevox import Client
+from voicevox import Client
 import asyncio
 import whisper
 import time
