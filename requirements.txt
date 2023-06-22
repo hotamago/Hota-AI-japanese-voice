@@ -4,3 +4,4 @@ scipy
 openai-whisper
 translators
 fake-useragent
+keyboard
