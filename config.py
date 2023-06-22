@@ -4,9 +4,10 @@ volume_outspeaker = 1.0  # Volume of speaker
 
 speaker_ai = 1
 
-LOC_MYVOICE = '_temp/myvoice.wav'
-LOC_VOICE  = '_temp/voice.wav'
-LOC_LOG = '_temp/log.txt'
+LOC_TEMP = '_temp/'
+LOC_MYVOICE = LOC_TEMP + 'myvoice.wav'
+LOC_VOICE  = LOC_TEMP + 'voice.wav'
+LOC_LOG = LOC_TEMP + 'log.txt'
 
 # {'capybara': 'Sage',
 #  'nutria': 'Dragonfly',

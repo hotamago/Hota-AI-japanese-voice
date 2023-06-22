@@ -3,6 +3,7 @@ from voicevox import Client
 import asyncio
 import whisper
 import time
+import os
 
 # import speech_recognition as sr
 
@@ -68,6 +69,9 @@ menu_activated = False
 
 # Main
 if __name__ == "__main__":
+    if not os.path.isdir(LOC_TEMP):
+        os.mkdir(LOC_TEMP)
+
     while(True):
         try:
             print_ui("header")
